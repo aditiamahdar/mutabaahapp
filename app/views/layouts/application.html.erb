@@ -10,13 +10,13 @@
 
   <body>
     <% if flash[:notice] %>
-      <div class='alert-notice'>
+      <div class='notice-message'>
         <%= flash[:notice] %>
       </div>
     <% end %>
-    <% if flash[:error] %>
-      <div class='alert-error'>
-        <%= flash[:error] %>
+    <% if flash[:alert] %>
+      <div class='alert-message'>
+        <%= flash[:alert] %>
       </div>
     <% end %>
     <%= yield %>
