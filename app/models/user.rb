@@ -24,4 +24,15 @@ class User < ApplicationRecord
   has_many :group_binaan, foreign_key: :murabbi_id, class_name: 'Group'
   has_many :yaumiyah_reports
   has_many :yaumiyahs, through: :yaumiyah_reports
+
+  enum level: [:tamhidi, :muayyid, :muntasib, :muntazim, :ahli, :paripurna]
+
+  validates :name, :username, :password, :level, presence: true
+
+  before_create :encrypt_password
+
+  protected
+    def encrypt_password
+      self.password = Digest::SHA1.hexdigest(self.password)
+    end
 end

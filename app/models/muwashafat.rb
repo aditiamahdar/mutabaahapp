@@ -11,4 +11,5 @@
 #
 
 class Muwashafat < ApplicationRecord
+  enum level: [:tamhidi, :muayyid, :muntasib, :muntazim, :ahli, :paripurna]
 end
