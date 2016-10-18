@@ -21,6 +21,7 @@
     <% end %>
 
     <% if session[:current_user_id] %>
+      <div><%= "Login sebagai #{current_user.name}"%></div>
       <div class='top-nav'>
         <ul>
           <li><%= link_to 'Muwashafat', muwashafats_path %></li>

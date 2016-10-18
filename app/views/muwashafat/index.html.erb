@@ -1,7 +1,7 @@
 <h1>Muwashafat</h1>
 
 <% @muwashafats.group_by(&:level).each do |level, muwashafats| %>
-  <h2><%= level %></h2>
+  <h2><%= level.upcase %></h2>
   <% muwashafats.group_by(&:category).each do |category, ms| %>
     <% ms.each do |muwashafat| %>
       <div class='muwashafat'>
