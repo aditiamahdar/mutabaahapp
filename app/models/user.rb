@@ -31,6 +31,10 @@ class User < ApplicationRecord
 
   before_create :encrypt_password
 
+  def valid_password?(new_password)
+    password.eql?(Digest::SHA1.hexdigest(new_password.to_s))
+  end
+
   protected
     def encrypt_password
       self.password = Digest::SHA1.hexdigest(self.password)
