@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.top-nav ul {
+  display: inline;
+}
+.top-nav li {
+  float: left;
+  list-style: none;
+  margin: 10px 15px;
+}
+.muwashafat {
+  display: flex;
+}
+.muwashafat .item {
+  float: left;
+}
+.muwashafat .button_to .yes {
+  background: blue;
+}
+.muwashafat .button_to .notyet {
+  background: orange;
+}

@@ -19,6 +19,19 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
-    <%= yield %>
+
+    <% if session[:current_user_id] %>
+      <div class='top-nav'>
+        <ul>
+          <li><%= link_to 'Muwashafat', muwashafats_path %></li>
+          <li><%= link_to 'Yaumiyah', 'javascript:void(0)' %></li>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class='wrapper'>
+      <%= yield %>
+    </div>
   </body>
 </html>
