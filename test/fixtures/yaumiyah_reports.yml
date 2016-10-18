@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: yaumiyah_reports
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  yaumiyah_id :integer
+#  date        :date
+#  amount      :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  yaumiyah: one
+  date: 2016-10-18
+  amount: 1
+
+two:
+  user: two
+  yaumiyah: two
+  date: 2016-10-18
+  amount: 1
