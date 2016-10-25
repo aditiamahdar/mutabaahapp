@@ -123,5 +123,13 @@ Muwashafat.create([
     {name: "Menikah dengan pasangan yang sesuai", level: 0, category: 9}
   ])
 
-
+YaumiyahReport.delete_all
+Yaumiyah.delete_all
+Yaumiyah.create([
+    {name: "Tahajud", description: "Isi dengan 1 jika iya, dan 0 jika tidak"},
+    {name: "Shalat Berjamaah", description: "Isi dengan jumlah shalat wajib berjamaah, maksimal 5"},
+    {name: "Dhuha", description: "Isi dengan 1 jika iya, dan 0 jika tidak"},
+    {name: "Tilawah", description: "Isi dengan jumlah juz yang dibaca dalam satu hari"},
+    {name: "Sedekah", description: "Isi dengan 1 jika iya, dan 0 jika tidak"}
+  ])
 

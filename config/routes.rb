@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboard#index', as: :dashboard
   get '/muwashafat' => 'muwashafat#index', as: :muwashafats
   patch '/muwashafat/:id' => 'muwashafat#update', as: :update_muwashafat
+
+  get '/yaumiyah' => 'yaumiyah#index', as: :yaumiyah
+  post '/yaumiyah/report' => 'yaumiyah#report', as: :yaumiyah_report
 end

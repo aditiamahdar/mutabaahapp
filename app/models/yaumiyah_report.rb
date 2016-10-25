@@ -14,4 +14,6 @@
 class YaumiyahReport < ApplicationRecord
   belongs_to :user
   belongs_to :yaumiyah
+
+  validates :yaumiyah_id, uniqueness: {scope: [:user_id, :date]}
 end

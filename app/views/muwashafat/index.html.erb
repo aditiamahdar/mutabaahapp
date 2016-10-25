@@ -4,13 +4,13 @@
   <h2><%= level.upcase %></h2>
   <% muwashafats.sort_by(&:category_before_type_cast).group_by(&:category).each do |category, ms| %>
     <h3>[<%= category.titleize %>]</h3>
-    <% ms.each_with_index do |muwashafat, index| %>
-      <div class='muwashafat'>
+    <% ms.sort_by(&:id).each_with_index do |muwashafat, index| %>
+      <div class='muwashafat' id='<%= muwashafat.id %>'>
         <span class='item'><%= "#{index+1}. #{muwashafat.name}" %></span>
         <span style="width:10px;"></span>
-        <%= button_to 'Tuntas', update_muwashafat_path(muwashafat.id, status: true), method: :patch, class: "item #{muwashafat.status? ? 'yes' : '' unless muwashafat.status.nil?}" %>
+        <%= button_to 'Tuntas', update_muwashafat_path(muwashafat.id, status: true, anchor: muwashafat.id), method: :patch, class: "item #{muwashafat.status? ? 'yes' : '' unless muwashafat.status.nil?}" %>
         <span style="width:10px;"></span>
-        <%= button_to 'Belum', update_muwashafat_path(muwashafat.id, status: false), method: :patch, class: "item #{muwashafat.status? ? '' : 'notyet' unless muwashafat.status.nil?}" %>
+        <%= button_to 'Belum', update_muwashafat_path(muwashafat.id, status: false, anchor: muwashafat.id), method: :patch, class: "item #{muwashafat.status? ? '' : 'notyet' unless muwashafat.status.nil?}" %>
       </div>
     <% end %>
   <% end %>

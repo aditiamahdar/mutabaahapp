@@ -1,0 +1,16 @@
+<h1>Yaumiyah</h1>
+
+<div class='yaumiyah'>
+  <%= form_tag yaumiyah_report_path do %>
+    <%= date_field_tag :date, nil %>
+    <% @yaumiyahs.each do |yaumiyah| %>
+      <div class='amal'>
+        <%= hidden_field_tag '[report][][yaumiyah_id]', yaumiyah[0] %>
+        <span><%= yaumiyah[1] %></span>
+        <%= number_field_tag '[report][][amount]', 0 %>
+        <small><%= yaumiyah[2] %></small>
+      </div>
+    <% end %>
+    <%= submit_tag 'SIMPAN' %>
+  <%end %>
+</div>

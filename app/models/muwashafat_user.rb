@@ -14,4 +14,6 @@
 class MuwashafatUser < ApplicationRecord
   belongs_to :muwashafat
   belongs_to :user
+
+  validates :user_id, uniqueness: {scope: :muwashafat_id}
 end
