@@ -6,7 +6,7 @@
     <% ms.each do |muwashafat| %>
       <div class='muwashafat'>
         <span class='item'><%= "[#{category}] #{muwashafat.name} "%></span>
-        <%= button_to 'Ya', update_muwashafat_path(muwashafat.id, status: true), method: :patch, class: "item #{muwashafat.status? ? 'yes' : '' unless muwashafat.status.nil?}" %>
+        <%= button_to 'Tuntas', update_muwashafat_path(muwashafat.id, status: true), method: :patch, class: "item #{muwashafat.status? ? 'yes' : '' unless muwashafat.status.nil?}" %>
         <%= button_to 'Belum', update_muwashafat_path(muwashafat.id, status: false), method: :patch, class: "item #{muwashafat.status? ? '' : 'notyet' unless muwashafat.status.nil?}" %>
       </div>
     <% end %>
