@@ -12,7 +12,9 @@
 #
 
 class Muwashafat < ApplicationRecord
+  # level => 0, 1, 2, 3, 4, 5
   enum level: [:tamhidi, :muayyid, :muntasib, :muntazim, :ahli, :paripurna]
+  # category => 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
   enum category: [:salimul_aqidah, :shahihul_ibadah, :matiinul_khuluq,
     :qadirun_alal_kasbi, :mutsaqqaful_fikri, :qawiyyul_jismi, :mujahidun_linafsihi,
     :munazhzham_fi_syuunihi, :harishun_ala_waqtihi, :nafiun_li_ghairihi]
