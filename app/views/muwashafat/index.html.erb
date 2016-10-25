@@ -2,11 +2,14 @@
 
 <% @muwashafats.group_by(&:level).each do |level, muwashafats| %>
   <h2><%= level.upcase %></h2>
-  <% muwashafats.group_by(&:category).each do |category, ms| %>
-    <% ms.each do |muwashafat| %>
+  <% muwashafats.sort_by(&:category_before_type_cast).group_by(&:category).each do |category, ms| %>
+    <h3>[<%= category.titleize %>]</h3>
+    <% ms.each_with_index do |muwashafat, index| %>
       <div class='muwashafat'>
-        <span class='item'><%= "[#{category}] #{muwashafat.name} "%></span>
+        <span class='item'><%= "#{index+1}. #{muwashafat.name}" %></span>
+        <span style="width:10px;"></span>
         <%= button_to 'Tuntas', update_muwashafat_path(muwashafat.id, status: true), method: :patch, class: "item #{muwashafat.status? ? 'yes' : '' unless muwashafat.status.nil?}" %>
+        <span style="width:10px;"></span>
         <%= button_to 'Belum', update_muwashafat_path(muwashafat.id, status: false), method: :patch, class: "item #{muwashafat.status? ? '' : 'notyet' unless muwashafat.status.nil?}" %>
       </div>
     <% end %>

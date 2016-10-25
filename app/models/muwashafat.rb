@@ -22,6 +22,8 @@ class Muwashafat < ApplicationRecord
   has_many :muwashafat_users
   has_many :users, through: :muwashafat_users
 
+  # validates :name, uniqueness: {scope: :category}
+
   def self.get_status(current_user_id)
     select('m.id, m.name, m.level, m.category, m.description, mu.status, mu.note')
       .from('muwashafats AS m')
