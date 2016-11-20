@@ -7,10 +7,10 @@
 # List Muwashafat - Done
 # Update Muwashafat - Done
 
-# List Yaumiyah
-# Add/Edit Yaumiyah
-# Batch Add Yaumiyah
-# Laporan Yaumiyah perbulan
+# List Yaumiyah [Index] - Done
+# Add/Edit Yaumiyah [Create] - Done
+# Batch Add Yaumiyah [Update]
+# Laporan Yaumiyah perbulan [Report#Index] - Done
 
 # My Group Info
 # List Group Binaan

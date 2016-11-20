@@ -3,7 +3,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   api :GET, '/users/:id', 'Detail user'
   error code: 404, desc: 'User tidak ditemukan!'
-  param_group :auth
+  param_group :auth, Api::V1::ApiController
   param :id, String, desc: "User ID"
   description 'Detail user'
   formats ['json']
@@ -25,16 +25,17 @@ class Api::V1::UsersController < Api::V1::ApiController
     }
   '
   def show
-    user = User.find_by(id: params[:id])
-    response = if user then user.api_response else not_found_user end
-    render json: response.except(:status), status: response[:status]
+    user = User.find(params[:id])
+    if stale?(last_modified: user.updated_at)
+      render json: user.api_response
+    end
   end
 
   api :PATCH, '/users/:id', 'Update data user'
   error code: 404, desc: 'User tidak ditemukan!'
   error code: 400, desc: 'Data tidak dapat diproses karena tidak lolos validasi'
-  param_group :auth
-  param :id, String, desc: "User ID"
+  param_group :auth, Api::V1::ApiController
+  param :id, String, desc: "User ID", required: true
   param :user, Hash do
     param :name, String
     param :username, String

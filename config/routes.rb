@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       resources :token, only: [:create, :destroy]
       resources :muwashafat, only: [:index, :update]
       resources :users, only: [:show, :update]
+      resources :yaumiyah, only: [:index, :create, :update]
+      resources :reports, only: [:index]
     end
   end
 end

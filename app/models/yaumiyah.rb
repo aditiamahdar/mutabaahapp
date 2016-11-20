@@ -11,4 +11,5 @@
 
 class Yaumiyah < ApplicationRecord
   has_many :yaumiyah_reports
+  has_many :users, through: :yaumiyah_reports
 end

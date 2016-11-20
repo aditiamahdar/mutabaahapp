@@ -32,7 +32,7 @@ class Api::V1::TokenController < Api::V1::ApiController
 
   api :DELETE, '/token/:id', 'Logout'
   param :id, String, desc: 'User ID', required: true
-  param_group :auth
+  param_group :auth, Api::V1::ApiController
   description 'Logout'
   formats ['json']
   example '
