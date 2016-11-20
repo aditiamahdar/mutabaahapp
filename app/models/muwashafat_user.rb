@@ -16,4 +16,8 @@ class MuwashafatUser < ApplicationRecord
   belongs_to :user
 
   validates :user_id, uniqueness: {scope: :muwashafat_id}
+
+  def api_response
+    attributes.symbolize_keys
+  end
 end

@@ -5,6 +5,8 @@ ruby '2.3.1'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'rack-mini-profiler'
+gem 'memory_profiler'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -31,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'annotate'
+gem 'apipie-rails'
 gem 'rails_admin', '~> 1.0'
 
 group :development, :test do

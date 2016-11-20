@@ -30,4 +30,8 @@ class Muwashafat < ApplicationRecord
       .joins("LEFT JOIN muwashafat_users AS mu ON
         (m.id = mu.muwashafat_id and mu.user_id = #{current_user_id})")
   end
+
+  def api_response
+    attributes.symbolize_keys
+  end
 end

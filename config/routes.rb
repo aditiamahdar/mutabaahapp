@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   mount RailsAdmin::Engine => '/superadmin', as: 'rails_admin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
@@ -11,4 +12,12 @@ Rails.application.routes.draw do
 
   get '/yaumiyah' => 'yaumiyah#index', as: :yaumiyah
   post '/yaumiyah/report' => 'yaumiyah#report', as: :yaumiyah_report
+
+  namespace :api do
+    namespace :v1, format: :json do
+      resources :token, only: [:create, :destroy]
+      resources :muwashafat, only: [:index, :update]
+      resources :users, only: [:show, :update]
+    end
+  end
 end
