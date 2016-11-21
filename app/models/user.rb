@@ -37,9 +37,9 @@ class User < ApplicationRecord
     password.eql?(Digest::SHA1.hexdigest(new_password.to_s))
   end
 
-  def login_api!(params)
+  def self.login_api!(params)
     user = User.find_by(username: params[:username])
-    update_user_token if user.try(:valid_password?, params[:password])
+    user.update_user_token if user.try(:valid_password?, params[:password])
     user
   end
 
@@ -53,14 +53,15 @@ class User < ApplicationRecord
     })
   end
 
+  def update_user_token
+    update_attribute(:token, generate_auth_token)
+  end
+
   protected
     def encrypt_password
       self.password = Digest::SHA1.hexdigest(self.password)
     end
 
-    def update_user_token
-      update_attribute(:token, generate_auth_token)
-    end
 
     def remove_user_token
       update_attribute(:token, nil)
