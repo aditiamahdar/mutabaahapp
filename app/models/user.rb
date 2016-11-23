@@ -39,8 +39,12 @@ class User < ApplicationRecord
 
   def self.login_api!(params)
     user = User.find_by(username: params[:username])
-    user.update_user_token if user.try(:valid_password?, params[:password])
-    user
+    if user.try(:valid_password?, params[:password])
+      user.update_user_token
+      user
+    else
+      nil
+    end
   end
 
   def logout_api!
