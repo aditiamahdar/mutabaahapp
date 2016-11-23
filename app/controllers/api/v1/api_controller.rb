@@ -17,6 +17,8 @@
 # Info Group Binaan
 
 class Api::V1::ApiController < ActionController::API
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
   def_param_group :auth do
     param :token, String, desc: 'User token', required: true
   end
