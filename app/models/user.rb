@@ -31,7 +31,7 @@ class User < ApplicationRecord
   validates :name, :username, :password, :level, presence: true
   validates :username, :email, uniqueness: true
 
-  before_create :encrypt_password
+  before_save :encrypt_password
 
   def valid_password?(new_password)
     password.eql?(Digest::SHA1.hexdigest(new_password.to_s))
@@ -63,9 +63,14 @@ class User < ApplicationRecord
 
   protected
     def encrypt_password
-      self.password = Digest::SHA1.hexdigest(self.password)
+      if self.persisted?
+        if self.password_changed?
+          self.password = Digest::SHA1.hexdigest(self.password)
+        end
+      else
+        self.password = Digest::SHA1.hexdigest(self.password)
+      end
     end
-
 
     def remove_user_token
       update_attribute(:token, nil)
